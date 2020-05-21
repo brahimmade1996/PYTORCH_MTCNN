@@ -113,7 +113,7 @@ class ImageDB(object):
                 pass
             else:
                 label = annotation[1]
-                imdb_['label'] = i #int(label)
+                imdb_['label'] = int(label)
                 imdb_['flipped'] = False
                 imdb_['bbox_target'] = np.zeros((4,))
                 imdb_['landmark_target'] = np.zeros((10,))
@@ -122,10 +122,10 @@ class ImageDB(object):
                     #print(len(annotation[2:]))
                     bbox_target = annotation[2:6]
                     imdb_['bbox_target'] = np.array(bbox_target).astype(float)
-                if len(annotation[1:])==14:
-                    bbox_target = annotation[1:5]
+                if len(annotation[2:])==14:
+                    bbox_target = annotation[2:6]
                     imdb_['bbox_target'] = np.array(bbox_target).astype(float)
-                    landmark = annotation[5:]
+                    landmark = annotation[6:]
                     imdb_['landmark_target'] = np.array(landmark).astype(float)
             imdb.append(imdb_)
 
