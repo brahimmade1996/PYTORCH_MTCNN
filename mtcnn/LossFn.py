@@ -36,8 +36,6 @@ from itertools import product
 
 
 
-
-
 # In[ ]:
 
 
